@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pusher WebRTC Chat</title>
+  <title>WebRTC Video Chat</title>
 
   <script>
     var frameLoad = function() {
       var chat1 = document.getElementById("chat-1");
 
-      var channelName = "my-chat-room-" + Math.round(Math.random() * 9999);
+      var channelName = "chat-" + Math.round(Math.random() * 9999);
 
       chat1.src = "/chat.html?channel=" + channelName;
     };

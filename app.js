@@ -1,7 +1,8 @@
+var pjson = require('./package.json');
+
 var config;
 try {
   config = require("./config");
-  console.log('config loaded from code');
 } catch(e) {
   console.log("Failed to find local config, falling back to environment variables");
   config = {
@@ -16,7 +17,7 @@ var bodyParser = require("body-parser");
 var errorHandler = require("errorhandler");
 
 var app = express();
-var root = __dirname + "/../..";
+var root = __dirname;
 
 // --------------------------------------------------------------------
 // SET UP PUSHER
@@ -55,7 +56,7 @@ app.use(errorHandler({
 app.use(express.static(root));
 
 // Basic protection on _servers content
-app.get("/_servers", function(req, res) {
+app.get("/", function(req, res) {
   res.send(404);
 });
 
@@ -72,6 +73,7 @@ app.post("/message", function(req, res) {
   res.send(200);
 });
 
-// Open server on specified port
-console.log("Starting Express server");
-app.listen(process.env.PORT || 5001);
+var port = process.env.PORT || pjson.config.port;
+app.listen(port, function(error) {
+  console.log('Application started: ' + (error || 'OK') + ' \nListening on ' + port);
+});

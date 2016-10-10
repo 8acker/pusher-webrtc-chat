@@ -1,10 +1,10 @@
 {
-  "name": "pusher-webrtc-datachannel-demo",
+  "name": "pusher-webrtc-video-chat",
   "version": "0.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm test"
   },
   "author": "Robin Hawkes <robin@pusher.com>",
   "license": "MIT",
@@ -13,5 +13,8 @@
     "body-parser": "~1.4.3",
     "errorhandler": "~1.1.1",
     "pusher": "~0.1.3"
+  },
+  "config": {
+    "port": 3300
   }
 }
