@@ -1,6 +1,7 @@
 var config;
 try {
   config = require("./config");
+  console.log('config loaded from code');
 } catch(e) {
   console.log("Failed to find local config, falling back to environment variables");
   config = {
